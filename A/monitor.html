@@ -767,4 +767,241 @@
                         <p>Verificação gratuita de vulnerabilidades que demonstra valor e converte em assinantes</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-title">3.
+                        <div class="timeline-title">3. Parcerias Estratégicas</div>
+                        <p>Integração com bancos, softwares de contabilidade e coworkings para atingir PMEs</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">4. Marketing Digital Segmentado</div>
+                        <p>Campanhas no LinkedIn e Google Ads focadas em tomadores de decisão de PMEs</p>
+                    </div>
+                </div>
+
+                <h3>📊 Métricas de Sucesso (SaaS)</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <div class="feature-title">MRR (Monthly Recurring Revenue)</div>
+                        <div class="feature-desc">Receita recorrente mensal como principal indicador de crescimento sustentável</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-title">Taxa de Churn</div>
+                        <div class="feature-desc">Monitoramento de cancelamentos para otimizar retenção de clientes</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <div class="feature-title">LTV/CAC</div>
+                        <div class="feature-desc">Relação entre valor do cliente e custo de aquisição para validar escalabilidade</div>
+                    </div>
+                </div>
+
+                <h3>⚖️ Aspectos Legais e Conformidade</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">LGPD - Lei Geral de Proteção de Dados</div>
+                        <p><strong>Conformidade Total:</strong> Implementação de governança de dados, DPO nomeado e políticas transparentes de privacidade</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Futura Lei de IA (PL 2338/2023)</div>
+                        <p><strong>Preparação Antecipada:</strong> IA explicável, transparente e sem vieses discriminatórios</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Estrutura Societária</div>
+                        <p><strong>Sociedade Limitada (LTDA):</strong> Formato ideal para startups com múltiplos sócios e captação futura</p>
+                    </div>
+                </div>
+
+                <h3>🛠️ Tecnologia e Operação</h3>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    <strong>Equipe MVP:</strong> Desenvolvedor Full-Stack (CTO), Especialista em Cibersegurança e Gestor de Produto/Marketing
+                </p>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    <strong>Infraestrutura:</strong> Cloud computing (AWS/Azure) para escalabilidade e alta disponibilidade
+                </p>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    <strong>Desenvolvimento:</strong> Metodologia ágil (Scrum/Kanban) para iteração rápida baseada em feedback de usuários
+                </p>
+
+                <div class="interactive-demo" style="margin-top: 40px;">
+                    <h3 style="color: #333; margin-bottom: 20px;">📄 Plano de Negócios Completo</h3>
+                    <p style="color: #555; margin-bottom: 20px;">Disciplina: MUDE - Mindset Universitário para Desenvolvimento de Empreendedores</p>
+                    <button class="cta-button" onclick="showSummary()">Ver Sumário Executivo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>🛡️ Monitor AI</h3>
+            <p style="margin: 20px 0; line-height: 1.8;">
+                Transformando a complexidade da cibersegurança em conversas simples.<br>
+                Proteja. Aprenda. Confie.
+            </p>
+            <p style="opacity: 0.8; font-size: 0.9em;">
+                © 2025 Monitor AI - Projeto MUDE | Todos os direitos reservados<br>
+                Desenvolvido como proposta inovadora (AP1)
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Scroll to content
+            document.querySelector('.content-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Chat Simulation
+        function simulateChat(option) {
+            const chatMessages = document.getElementById('chatMessages');
+            
+            const responses = {
+                'security': {
+                    user: 'Quero verificar minha segurança',
+                    ai: '🔍 Perfeito! Estou analisando seus dispositivos agora...<br><br>✅ Sistema operacional atualizado<br>✅ Firewall ativo<br>⚠️ Detectei 3 senhas fracas<br><br>Gostaria que eu te ajudasse a criar senhas mais fortes? É super rápido!'
+                },
+                'threat': {
+                    user: 'O que são ameaças de cibersegurança?',
+                    ai: '📚 Ótima pergunta! Vou explicar de forma simples:<br><br>Ameaças são como "bandidos digitais" tentando roubar suas informações. Os principais tipos são:<br><br>🎣 <strong>Phishing:</strong> E-mails falsos que parecem reais<br>🦠 <strong>Malware:</strong> Programas maliciosos que infectam seu PC<br>🔓 <strong>Ransomware:</strong> "Sequestram" seus arquivos<br><br>Mas não se preocupe! Eu estou aqui protegendo você 24/7 😊'
+                },
+                'password': {
+                    user: 'Como criar uma senha forte?',
+                    ai: '🔐 Vou te ajudar! Uma senha forte precisa de:<br><br>✓ Mínimo 12 caracteres<br>✓ Letras maiúsculas e minúsculas<br>✓ Números e símbolos<br>✓ Nada óbvio (sem "123456"!)<br><br>💡 <strong>Dica profissional:</strong> Use uma frase que só você conhece, tipo: "MeuG@t0Tem3Anos!"<br><br>Quer que eu gere uma senha super segura pra você?'
+                },
+                'status': {
+                    user: 'Qual o status da minha proteção?',
+                    ai: '🛡️ <strong>Status: TOTALMENTE PROTEGIDO</strong><br><br>📊 Últimas 24 horas:<br>✓ 47 ameaças bloqueadas<br>✓ 12 sites maliciosos impedidos<br>✓ 0 vulnerabilidades críticas<br><br>🎯 Pontuação de Segurança: <strong>98/100</strong><br><br>Você está muito bem protegido! Continue assim! 🌟'
+                }
+            };
+
+            const response = responses[option];
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = response.user;
+            chatMessages.appendChild(userMsg);
+
+            // Add AI response after delay
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'message ai';
+                aiMsg.innerHTML = response.ai;
+                chatMessages.appendChild(aiMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Summary Modal
+        function showSummary() {
+            alert('📄 SUMÁRIO EXECUTIVO\n\n' +
+                  '🎯 PROPOSTA: Assistente de cibersegurança baseado em IA\n\n' +
+                  '💡 DIFERENCIAL: Interface conversacional que protege E ensina\n\n' +
+                  '👥 PÚBLICO: PMEs (5-50 funcionários), freelancers e usuários domésticos\n\n' +
+                  '💰 MODELO: SaaS com planos de R$ 29 a R$ 199/mês\n\n' +
+                  '📈 META (6 meses): 500 assinantes | R$ 30k MRR\n\n' +
+                  '⚖️ CONFORMIDADE: LGPD e futura Lei de IA\n\n' +
+                  '🚀 VISÃO: Ser a solução padrão para usuários não especialistas\n\n' +
+                  'Ver documento completo para detalhes técnicos, análise financeira e estratégia de mercado.');
+        }
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.textContent.includes('Começar') || this.textContent.includes('Popular') || this.textContent.includes('Teste')) {
+                    e.preventDefault();
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = 'position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);width:20px;height:20px;animation:ripple 0.6s;';
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                }
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = '@keyframes ripple { to { transform: scale(4); opacity: 0; } }';
+        document.head.appendChild(style);
+
+        // Feature cards hover effect
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-box, .feature-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add particle effect to header (optional)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 5px;
+                height: 5px;
+                background: rgba(255,255,255,0.5);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1;
+                animation: float 3s linear forwards;
+            `;
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '0px';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 3000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Add float animation
+        const floatStyle = document.createElement('style');
+        floatStyle.textContent = `
+            @keyframes float {
+                to {
+                    transform: translateY(${window.innerHeight}px) translateX(${Math.random() * 100 - 50}px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(floatStyle);
+    </script>
+</body>
+</html>
