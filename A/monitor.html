@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor AI - Cibersegurança Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .tab-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .content-area {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            min-height: 500px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin: 25px 0 15px;
+            font-size: 1.4em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 5px solid #667eea;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.08);
+        }
+
+        .pricing-card.featured .plan-name,
+        .pricing-card.featured .plan-price {
+            color: white;
+        }
+
+        .plan-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #f5576c;
+            margin: 20px 0;
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .plan-features li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline-item {
+            background: #f5f7fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: #e8ecf1;
+            transform: translateX(10px);
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .chat-interface {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            background: #f0f0f0;
+            padding: 12px 18px;
+            border-radius: 18px;
+            margin: 10px 0;
+            max-width: 80%;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.ai {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: #e3f2fd;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chat-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .option-button {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .option-button:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            .content-area {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🛡️ Monitor AI</div>
+            <div class="tagline">Proteção Inteligente. Conversa Simples. Segurança Total.</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('overview')">Visão Geral</button>
+            <button class="tab-button" onclick="showTab('features')">Funcionalidades</button>
+            <button class="tab-button" onclick="showTab('market')">Mercado</button>
+            <button class="tab-button" onclick="showTab('pricing')">Planos</button>
+            <button class="tab-button" onclick="showTab('demo')">Demo Interativa</button>
+            <button class="tab-button" onclick="showTab('business')">Modelo de Negócio</button>
+        </div>
+
+        <div class="content-area">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2>O Que é Monitor AI?</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0;">
+                    O <strong>Monitor AI</strong> é um assistente interativo de cibersegurança que protege, age e ensina. 
+                    Transformamos a complexidade da cibersegurança em uma <strong>conversa simples</strong>, 
+                    sendo a solução ideal para PMEs, freelancers e usuários domésticos.
+                </p>
+
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Proteção Contínua</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Taxa de Detecção</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3min</div>
+                        <div class="stat-label">Tempo de Resposta</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Conformidade LGPD</div>
+                    </div>
+                </div>
+
+                <h3>🎯 Nossa Missão</h3>
+                <p style="line-height: 1.8; margin: 15px 0;">
+                    Ser a <strong>solução padrão de cibersegurança</strong> para o usuário não especialista, 
+                    transformando a proteção digital de uma obrigação complexa em um relacionamento 
+                    simples e educativo.
+                </p>
+
+                <h3>✨ Diferenciais</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-title">Interface Conversacional</div>
+                        <div class="feature-desc">Interaja com sua segurança através de uma IA que fala sua língua</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <div class="feature-title">Aprendizado Contextual</div>
+                        <div class="feature-desc">Ensina no momento exato da ameaça, transformando cada interação em aprendizado</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-title">Ação Proativa</div>
+                        <div class="feature-desc">Protege automaticamente antes que você precise se preocupar</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Tab -->
+            <div id="features" class="tab-content">
+                <h2>Funcionalidades Principais</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-title">Detecção Inteligente</div>
+                        <div class="feature-desc">Identifica ameaças em tempo real usando IA avançada e machine learning</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-title">Proteção Multicamada</div>
+                        <div class="feature-desc">Firewall inteligente, antivírus e proteção contra phishing integrados</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">Dashboard Simplificado</div>
+                        <div class="feature-desc">Visualize sua segurança de forma clara e intuitiva</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <div class="feature-title">Educação Contínua</div>
+                        <div class="feature-desc">Aprenda sobre segurança enquanto está protegido</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <div class="feature-title">Gerenciador de Senhas</div>
+                        <div class="feature-desc">Crie e armazene senhas fortes de forma segura</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-title">Multi-Plataforma</div>
+                        <div class="feature-desc">Proteja desktop, mobile e dispositivos IoT</div>
+                    </div>
+                </div>
+
+                <h3>🚀 Tecnologias Utilizadas</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Processamento de Linguagem Natural (NLP)</div>
+                        <p>Interface conversacional que entende contexto e responde em linguagem simples</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Machine Learning</div>
+                        <p>Detecção de padrões anômalos e aprendizado contínuo com novas ameaças</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Cloud Computing</div>
+                        <p>Infraestrutura escalável em AWS/Azure para alta disponibilidade</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">APIs de Segurança</div>
+                        <p>Integração com engines de proteção líderes de mercado</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Tab -->
+            <div id="market" class="tab-content">
+                <h2>Análise de Mercado</h2>
+                
+                <h3>🎯 Público-Alvo</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏢</div>
+                        <div class="feature-title">PMEs (Primário)</div>
+                        <div class="feature-desc">Empresas com 5-50 funcionários sem equipe de segurança dedicada</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💼</div>
+                        <div class="feature-title">Freelancers (Secundário)</div>
+                        <div class="feature-desc">Consultores e trabalhadores remotos que precisam proteger dados sensíveis</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                        <div class="feature-title">Famílias (Terciário)</div>
+                        <div class="feature-desc">Usuários domésticos não técnicos buscando proteção simples</div>
+                    </div>
+                </div>
+
+                <h3>📈 Tamanho do Mercado</h3>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    O mercado de cibersegurança cresce exponencialmente, impulsionado pelo aumento de 
+                    ataques cibernéticos e crescimento do trabalho remoto. Focamos especificamente no 
+                    mercado <strong>subatendido de usuários não especialistas</strong> que buscam soluções 
+                    simples e acessíveis.
+                </p>
+
+                <h3>🥊 Concorrência</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Concorrentes Diretos</div>
+                        <p><strong>Antivírus Tradicionais:</strong> Avast, McAfee, Kaspersky - focados em proteção técnica sem educação</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Concorrentes Indiretos</div>
+                        <p><strong>Consultorias e Ferramentas Complexas:</strong> Firewalls empresariais, VPNs técnicas - inacessíveis para não especialistas</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Nossa Vantagem Competitiva</div>
+                        <p><strong>IA Conversacional + Educação:</strong> Única solução que protege E ensina simultaneamente através de conversa natural</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Tab -->
+            <div id="pricing" class="tab-content">
+                <h2>Planos e Preços</h2>
+                <p style="text-align: center; font-size: 1.1em; margin: 20px 0;">
+                    Escolha o plano ideal para suas necessidades. Todos incluem proteção 24/7 e suporte especializado.
+                </p>
+
+                <div class="pricing-table">
+                    <div class="pricing-card">
+                        <div class="plan-name">Pessoal</div>
+                        <div class="plan-price">R$ 29<span style="font-size: 0.4em;">/mês</span></div>
+                        <ul class="plan-features">
+                            <li>1 dispositivo protegido</li>
+                            <li>Assistente IA básico</li>
+                            <li>Proteção contra malware</li>
+                            <li>Gerenciador de senhas</li>
+                            <li>Tutoriais educativos</li>
+                        </ul>
+                        <button class="cta-button">Começar Agora</button>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="plan-name">Profissional</div>
+                        <div class="plan-price">R$ 79<span style="font-size: 0.4em;">/mês</span></div>
+                        <ul class="plan-features">
+                            <li>Até 5 dispositivos</li>
+                            <li>IA conversacional avançada</li>
+                            <li>Proteção multicamada completa</li>
+                            <li>VPN integrada</li>
+                            <li>Relatórios detalhados</li>
+                            <li>Suporte prioritário</li>
+                        </ul>
+                        <button class="cta-button">Mais Popular</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="plan-name">Empresarial</div>
+                        <div class="plan-price">R$ 199<span style="font-size: 0.4em;">/mês</span></div>
+                        <ul class="plan-features">
+                            <li>Dispositivos ilimitados</li>
+                            <li>IA personalizada</li>
+                            <li>Proteção para IoT</li>
+                            <li>Dashboard administrativo</li>
+                            <li>Consultoria mensal</li>
+                            <li>Conformidade LGPD</li>
+                            <li>SLA garantido</li>
+                        </ul>
+                        <button class="cta-button">Contate-nos</button>
+                    </div>
+                </div>
+
+                <div class="interactive-demo" style="margin-top: 40px;">
+                    <h3 style="color: #333; margin-bottom: 20px;">🎁 Teste Grátis por 14 Dias</h3>
+                    <p style="color: #555; margin-bottom: 20px;">Experimente todos os recursos sem compromisso. Não precisa cartão de crédito!</p>
+                    <button class="cta-button">Iniciar Teste Gratuito</button>
+                </div>
+            </div>
+
+            <!-- Demo Tab -->
+            <div id="demo" class="tab-content">
+                <h2>Experimente a Interface de IA</h2>
+                <p style="text-align: center; margin: 20px 0;">
+                    Veja como é fácil interagir com o Monitor AI. Clique em uma das opções abaixo para simular uma conversa.
+                </p>
+
+                <div class="interactive-demo">
+                    <div class="chat-interface">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message ai">
+                                Olá! 👋 Sou o Monitor AI, seu assistente pessoal de cibersegurança. 
+                                Como posso ajudar você hoje?
+                            </div>
+                        </div>
+                        <div class="chat-options">
+                            <button class="option-button" onclick="simulateChat('security')">
+                                Verificar Segurança
+                            </button>
+                            <button class="option-button" onclick="simulateChat('threat')">
+                                O que são ameaças?
+                            </button>
+                            <button class="option-button" onclick="simulateChat('password')">
+                                Criar senha forte
+                            </button>
+                            <button class="option-button" onclick="simulateChat('status')">
+                                Status atual
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px;">💡 Por Que Nossa IA é Diferente?</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🗣️</div>
+                        <div class="feature-title">Linguagem Natural</div>
+                        <div class="feature-desc">Sem jargões técnicos. Conversamos como você fala no dia a dia.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">Contexto Inteligente</div>
+                        <div class="feature-desc">Entende suas dúvidas e adapta respostas ao seu nível de conhecimento.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-title">Ação Imediata</div>
+                        <div class="feature-desc">Não apenas explica, mas age para resolver problemas automaticamente.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Tab -->
+            <div id="business" class="tab-content">
+                <h2>Modelo de Negócio</h2>
+                
+                <h3>💰 Estratégia de Receita (SaaS)</h3>
+                <p style="line-height: 1.8; margin: 20px 0;">
+                    Modelo de <strong>assinatura recorrente</strong> que garante previsibilidade financeira 
+                    e permite reinvestimento contínuo em P&D para manter a IA sempre atualizada.
+                </p>
+
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">500</div>
+                        <div class="stat-label">Meta: Assinantes (6 meses)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">R$ 30k</div>
+                        <div class="stat-label">Receita Mensal Projetada</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">800</div>
+                        <div class="stat-label">Break-even (assinantes)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">10%</div>
+                        <div class="stat-label">Custos Variáveis</div>
+                    </div>
+                </div>
+
+                <h3>🚀 Estratégias de Crescimento</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">1. Marketing de Conteúdo Educacional</div>
+                        <p>Blog, YouTube e guias gratuitos que simplificam cibersegurança, estabelecendo autoridade no tema</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">2. Modelo Freemium</div>
+                        <p>Verificação gratuita de vulnerabilidades que demonstra valor e converte em assinantes</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">3.
